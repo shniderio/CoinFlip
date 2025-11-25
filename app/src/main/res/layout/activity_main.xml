@@ -8,6 +8,17 @@
     android:background="#1A1A2E"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Total: 0"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
     <ImageView
         android:id="@+id/iv_coin"
         android:layout_width="250dp"
@@ -15,5 +26,29 @@
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/heads"
         />
+
+    <TextView
+        android:id="@+id/tv_heads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Heads: 0"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_tails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Tails: 0"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
 </RelativeLayout>
