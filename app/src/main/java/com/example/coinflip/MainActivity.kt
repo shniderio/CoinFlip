@@ -3,7 +3,6 @@ package com.example.coinflip
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -42,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         ivCoin.setOnClickListener {
             val randomNumber = (1..2).random()
             if (randomNumber == 1) {
-                flipCoin(R.drawable.heads, "Heads")
+                flipCoin(R.drawable.heads)
                 headsCount++
             } else {
-                flipCoin(R.drawable.tails, "Tails")
+                flipCoin(R.drawable.tails)
                 tailsCount++
             }
             updateScores()
@@ -53,24 +52,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateScores() {
-        tvHeads.text = "Heads: $headsCount"
-        tvTails.text = "Tails: $tailsCount"
-        tvTotal.text = "Total: ${headsCount + tailsCount}"
+        "Heads: $headsCount".also { tvHeads.text = it }
+        "Tails: $tailsCount".also { tvTails.text = it }
+        "Total: ${headsCount + tailsCount}".also { tvTotal.text = it }
     }
 
-    private fun flipCoin(imageId: Int, coinSide: String) {
+    private fun flipCoin(imageId: Int) {
         ivCoin.animate().apply {
             duration = 750
+//            val variationOfLandUp = listOf(-180, -135, -90, -45, 45, 90, 135, 180).random()
             rotationYBy(1080f)
+            rotationXBy(540f)
+//            rotationXBy(variationOfLandUp.toFloat())
             scaleX(1.2f)
             scaleY(1.2f)
             ivCoin.isClickable = false
         }.withEndAction {
             ivCoin.setImageResource(imageId)
-            Toast.makeText(this, coinSide, Toast.LENGTH_SHORT).show()
             ivCoin.animate().apply {
                 duration = 750
-                rotationYBy(1080f)
+                rotationXBy(1080f)
+//                val variationOfLandDown = listOf(-180, -135, -90, -45, 45, 90, 135, 180).random()
+                rotationYBy(540f)
+//                rotationXBy(variationOfLandDown.toFloat())
                 scaleX(1f)
                 scaleY(1f)
             }.withEndAction {
